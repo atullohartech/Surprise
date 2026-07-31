@@ -51,12 +51,20 @@ h1{
 
 /* Image Slider */
 
+/* Image Slider */
+
 .slider{
     width:100%;
-    height:420px;
+    max-width:420px;
+    height:600px;
+    margin:0 auto;
     position:relative;
     overflow:hidden;
     border-radius:20px;
+    background:pink;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     box-shadow:0 0 20px rgba(255,255,255,.5);
 }
 
@@ -64,9 +72,11 @@ h1{
     position:absolute;
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
+    object-position:center;
     opacity:0;
     transition:opacity 1s ease-in-out;
+    padding:10px;
 }
 
 .slide.active{
@@ -233,7 +243,8 @@ h1{
     }
 
     .slider{
-        height:260px;
+        max-width:300px;
+        height:450px;
     }
 
     .love-btn{
@@ -263,10 +274,10 @@ Every picture tells a story, and every story reminds me how lucky I am to have y
 
 <div class="slider">
 
-    <img src="images/ChatGPT Image Jul 31, 2026, 8_23_59 PM.png" class="slide active">
-    <img src="images/ChatGPT Image Jul 31, 2026, 08_2359 PM.png" class="slide">
-    <img src="images/ChatGPT ImageJul 31, 2026, 08_23_59 PM.png" class="slide">
-    <img src="images/ChatGPT Imge Jul 31, 2026, 08_23_59 PM.png" class="slide">
+    <img src="image/ChatGPT Image Jul 31, 2026, 8_23_59 PM.png" class="slide active">
+    <img src="image/ChatGPT Image Jul 31, 2026, 08_2359 PM.png" class="slide">
+    <img src="image/ChatGPT ImageJul 31, 2026, 08_23_59 PM.png" class="slide">
+    <img src="image/ChatGPT Imge Jul 31, 2026, 08_23_59 PM.png" class="slide">
     <img src="image/ChatPT Image Jul 31, 2026, 08_23_59 PM.png" class="slide">
 
     
