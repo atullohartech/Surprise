@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love Message ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd3a5);
+    position:relative;
+}
+
+/* Main Card */
+
+.card{
+    width:90%;
+    max-width:900px;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    color:white;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,255,255,.3);
+    animation:fadeIn 2s ease;
+    z-index:2;
+}
+
+h1{
+    font-size:45px;
+    margin-bottom:20px;
+    animation:glow 2s infinite alternate;
+}
+
+.typing{
+    font-size:22px;
+    line-height:1.8;
+    text-align:left;
+    white-space:pre-wrap;
+    overflow-y:auto;
+    overflow-x:hidden;
+    border-right:3px solid white;
+    animation:blink .8s infinite;
+    height:320px;
+    padding-right:10px;
+    scrollbar-width:thin;
+    scrollbar-color:white transparent;
+}
+
+/* Scrollbar for Chrome, Edge */
+
+.typing::-webkit-scrollbar{
+    width:8px;
+}
+
+.typing::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.typing::-webkit-scrollbar-thumb{
+    background:white;
+    border-radius:10px;
+}
+
+.signature{
+    margin-top:30px;
+    text-align:right;
+    font-size:24px;
+    color:#fff176;
+    font-weight:bold;
+}
+
+.next-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:linear-gradient(45deg,#ff4081,#ff6f91);
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:50px;
+    box-shadow:0 0 15px rgba(255,64,129,.8);
+    transition:0.4s;
+    animation:pulse 2s infinite;
+}
+
+.next-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #fff;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+/* Floating Hearts */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff1744;
+    animation:floatHeart linear forwards;
+}
+
+/* Animations */
+
+@keyframes floatHeart{
+0%{
+transform:translateY(0) scale(.5);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.5);
+opacity:0;
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 30px white,0 0 50px pink;
+}
+}
+
+@keyframes blink{
+50%{
+border-color:transparent;
+}
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:32px;
+}
+
+.typing{
+font-size:18px;
+}
+
+.signature{
+font-size:20px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>💖 For My Love 💖</h1>
+
+<div class="typing" id="message"></div>
+
+<div class="signature">
+Forever Yours ❤️<br>
+Atul Lohar
+</div>
+
+<a href="gallery.html" class="next-btn">
+    📸💌 Click to Open →
+</a>
+
+</div>
+
+<script>
+
+const text = `Dear Pagal ❤️,
+
+Happy Girlfriend Day, my love.
+
+From the moment you came into my life, everything became brighter, happier, and more meaningful. Your smile is my favorite sight, your laughter is my favorite sound, and your love is the greatest gift I have ever received.
+
+Thank you for always believing in me, supporting me, and filling my days with happiness. Every moment spent with you becomes a memory I treasure forever.
+
+No matter what happens in life, I promise to stand beside you, care for you, respect you, and love you with all my heart.
+
+You are not just my girlfriend—you are my best friend, my happiness, my peace, and the most beautiful part of my life.
+
+I hope this little surprise brings a smile to your face because making you happy is one of my favorite things in the world.
+
+Happy Girlfriend Day once again, my love.
+
+I love you today,
+I will love you tomorrow,
+and I will keep loving you every single day. ❤️`;
+
+let i = 0;
+const speed = 35;
+
+function typeWriter(){
+
+    const message = document.getElementById("message");
+
+    if(i < text.length){
+
+        message.innerHTML += text.charAt(i);
+
+        // Auto-scroll while typing
+        message.scrollTop = message.scrollHeight;
+
+        i++;
+
+        setTimeout(typeWriter, speed);
+
+    }
+
+}
+
+typeWriter();
+
+// Floating Hearts
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+}
+
+setInterval(createHeart,250);
+
+</script>
+
+</body>
+</html>
