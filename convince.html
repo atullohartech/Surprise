@@ -285,6 +285,18 @@ h.remove();
 setInterval(heart,250);
 
 </script>
+<audio id="bgMusic" loop>
+    <source src="music/until-i-found-you.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
+<script>
+const music = document.getElementById("bgMusic");
+
+// Start music after first user interaction
+document.addEventListener("click", function () {
+    music.play();
+}, { once: true });
+</script>
 </body>
 </html>
